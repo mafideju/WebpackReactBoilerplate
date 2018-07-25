@@ -1,0 +1,16 @@
+{
+    "presets": [
+        "react",
+        ["env", {
+            "targets": {
+                "browsers": [
+                    "last 5 versions",
+                    "ie >= 8"
+                ]
+            }
+        }]
+    ],
+    "plugins": [
+        "transform-class-properties"
+    ]
+}
