@@ -1,16 +1,22 @@
 {
     "presets": [
+        "es2015",
+        "stage-0",
         "react",
-        ["env", {
-            "targets": {
-                "browsers": [
-                    "last 5 versions",
-                    "ie >= 8"
-                ]
+        [
+            "env",
+            {
+                "targets": {
+                    "browsers": [
+                        "last 5 versions",
+                        "ie >= 8"
+                    ]
+                }
             }
-        }]
+        ]
     ],
     "plugins": [
-        "transform-class-properties"
+        "transform-class-properties",
+        "react-hot-loader/babel"
     ]
 }
