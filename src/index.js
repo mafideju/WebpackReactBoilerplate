@@ -1,24 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { AppContainer } from 'react-hot-loader';
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { AppContainer } from 'react-hot-loader'
+import { storeConfig } from './store'
+import App from './App'
 
-ReactDOM.render(
-  <AppContainer>
-    <App />
-  </AppContainer>,
-  document.querySelector('[data-js="app"]')
-);
+const renderApp = (NextApp) => {
+  render(
+    <AppContainer>
+      <Provider store={storeConfig}>
+        <NextApp />
+      </Provider>
+    </AppContainer>,
+    document.querySelector('[data-js="app"]')
+  )
+}
+
+renderApp(App)
 
 if (module.hot) {
   module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
-    ReactDOM.render(
-      <AppContainer>
-        <NextApp />
-      </AppContainer>,
-      document.querySelector('[data-js="app"]'));
+    const NextApp = require('./App').default
+    renderApp(NextApp)
   })
 }
-
-// ReactDOM.render(<App />, document.querySelector('[data-js="app"]'));
